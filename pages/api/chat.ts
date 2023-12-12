@@ -15,6 +15,12 @@ export const config = {
 
 const handler = async (req: Request): Promise<Response> => {
   try {
+
+    return new Response(JSON.stringify({}), {
+      status: 200,
+      headers: {},
+    });
+
     const { model, messages, key, prompt, temperature } = (await req.json()) as ChatBody;
 
     await init((imports) => WebAssembly.instantiate(wasm, imports));

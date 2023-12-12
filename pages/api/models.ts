@@ -8,6 +8,12 @@ export const config = {
 
 const handler = async (req: Request): Promise<Response> => {
   try {
+
+    return new Response(JSON.stringify({}), {
+      status: 200,
+      headers: {},
+    });
+
     const { key } = (await req.json()) as {
       key: string;
     };
